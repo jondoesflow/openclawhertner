@@ -26,5 +26,5 @@ EXPOSE 18789 3978
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:18789/__openclaw__/health || exit 1
 
-# Start OpenClaw gateway using npx (finds correct path automatically)
-CMD ["npx", "openclaw", "gateway", "run"]
+# Start OpenClaw gateway with --allow-unconfigured flag
+CMD ["npx", "openclaw", "gateway", "run", "--allow-unconfigured"]
