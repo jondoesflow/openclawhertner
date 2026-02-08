@@ -39,11 +39,7 @@
     }
   },
   "gateway": {
-    "port": 18789,
-    "mode": "local",
-    "auth": {
-      "mode": "none"
-    }
+    "port": 18789
   },
   "plugins": {
     "entries": {
