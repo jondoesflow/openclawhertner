@@ -1,0 +1,20 @@
+# Environment files with secrets
+.env
+
+# Docker volumes
+openclaw-data/
+caddy-data/
+caddy-config/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Logs
+*.log

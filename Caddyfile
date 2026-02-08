@@ -1,0 +1,16 @@
+{
+    email your-email@example.com
+}
+
+# Replace with your Hetzner server domain
+your-domain.com {
+    # MS Teams webhook endpoint
+    handle /api/messages {
+        reverse_proxy openclaw:3978
+    }
+
+    # OpenClaw WebSocket/API
+    handle {
+        reverse_proxy openclaw:18789
+    }
+}
