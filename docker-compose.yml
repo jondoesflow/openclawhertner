@@ -10,7 +10,7 @@ services:
       - "3978:3978"    # MS Teams webhook
     volumes:
       - openclaw-data:/home/openclaw/.openclaw
-      - ./config:/home/openclaw/.openclaw:ro
+      - ./config/openclaw.json:/home/openclaw/.openclaw/openclaw.json:ro
     environment:
       - NODE_ENV=production
       - OPENAI_API_KEY=${OPENAI_API_KEY}
