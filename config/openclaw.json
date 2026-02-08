@@ -40,7 +40,8 @@
   },
   "gateway": {
     "port": 18789,
-    "mode": "local"
+    "mode": "local",
+    "auth": false
   },
   "plugins": {
     "entries": {
