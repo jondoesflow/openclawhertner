@@ -26,5 +26,8 @@ EXPOSE 18789 3978
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:18789/__openclaw__/health || exit 1
 
-# Start OpenClaw gateway (runs in foreground by default in Docker)
-CMD ["sh", "-c", "openclaw gateway start && tail -f /dev/null"]
+# Set gateway mode to skip systemd
+ENV OPENCLAW_GATEWAY_MODE=direct
+
+# Start OpenClaw gateway directly (no systemd in Docker)
+CMD ["node", "/usr/local/lib/node_modules/openclaw/dist/gateway.js"]
