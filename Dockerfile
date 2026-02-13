@@ -2,16 +2,12 @@ FROM node:22-slim
 
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
-
-# Install OpenClaw globally with MS Teams dependencies
-RUN npm install -g openclaw @microsoft/agents-hosting
-
-# Create openclaw user and directories
-RUN useradd -m -s /bin/bash openclaw && \
-    mkdir -p /home/openclaw/.openclaw && \
-    chown -R openclaw:openclaw /home/openclaw
+# Install system dependencies, OpenClaw, and create user
+RUN apt-get update && apt-get install -y git curl && rm -rf /var/lib/apt/lists/* \
+    && npm install -g openclaw @microsoft/agents-hosting \
+    && useradd -m -s /bin/bash openclaw \
+    && mkdir -p /home/openclaw/.openclaw \
+    && chown -R openclaw:openclaw /home/openclaw
 
 USER openclaw
 WORKDIR /home/openclaw
